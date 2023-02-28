@@ -13,6 +13,12 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <!-- Favicons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ \Illuminate\Support\Facades\URL::asset('images/favicons/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ \Illuminate\Support\Facades\URL::asset('images/favicons/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ \Illuminate\Support\Facades\URL::asset('images/favicons/favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ \Illuminate\Support\Facades\URL::asset('images/favicons/site.webmanifest') }}">
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
