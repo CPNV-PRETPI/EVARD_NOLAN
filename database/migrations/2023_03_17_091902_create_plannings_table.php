@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ingredients', function (Blueprint $table) {
+        Schema::create('plannings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('recipe_id')->constrained();
+            $table->timestamp('planned_for');
+            $table->string('moment_of_meal');
             $table->timestamps();
+            $table->unique(['planned_for', 'moment_of_meal']);
         });
     }
 
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ingredients');
+        Schema::dropIfExists('plannings');
     }
 };
