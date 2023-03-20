@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title')->unique();
             $table->text('instructions')->nullable();
             $table->integer('preparation_time')->nullable();
+            $table->integer('nb_of_people');
             $table->timestamps();
         });
     }

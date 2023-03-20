@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Recipe extends Model
 {
@@ -14,8 +15,8 @@ class Recipe extends Model
     {
         return $this->belongsToMany(Ingredient::class, 'ingredients_compose_recipes')->withPivot('quantity');
     }
-    public function plannings(): BelongsToMany
+    public function plannings(): HasMany
     {
-        return $this->belongsToMany(Planning::class);
+        return $this->HasMany(Planning::class);
     }
 }

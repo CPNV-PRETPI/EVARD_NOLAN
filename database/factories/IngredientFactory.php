@@ -17,7 +17,7 @@ class IngredientFactory extends Factory
     public function definition(): array
     {
         return [
-            //
-        ];
+            'name' => 'Ingredient' . fake()->unique()->randomNumber()
+            ];
     }
 }

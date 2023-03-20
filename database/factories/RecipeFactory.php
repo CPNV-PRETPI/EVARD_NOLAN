@@ -17,7 +17,10 @@ class RecipeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => 'Recipe' . fake()->unique()->randomNumber(),
+            'instructions' => fake()->text(),
+            'preparation_time' => fake()->randomNumber(1, true),
+            'nb_of_people' => fake()->randomNumber(1, true)
         ];
     }
 }
