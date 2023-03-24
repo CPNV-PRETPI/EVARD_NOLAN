@@ -11,6 +11,8 @@ class Planning extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function recipe(): BelongsTo
     {
         return $this->BelongsTo(Recipe::class);

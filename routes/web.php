@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function () {
-    return abort(200);
+    abort(200);
 })->middleware('auth')->name('planning');
 
 Route::middleware('auth')->group(function () {

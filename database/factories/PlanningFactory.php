@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
 use Faker\Core\DateTime;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,7 +19,7 @@ class PlanningFactory extends Factory
     public function definition(): array
     {
         return [
-            'planned_for' => fake()->date('Y-m-d H:i:s', '+3 weeks'),
+            'planned_for' => Carbon::now()->addDays(rand(1,30)),
             'moment_of_meal' => fake()->randomElement(['matin', 'midi', 'soir']),
         ];
     }
