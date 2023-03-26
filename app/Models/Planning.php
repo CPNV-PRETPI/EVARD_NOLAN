@@ -4,8 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Planning extends Model
 {
@@ -13,8 +12,8 @@ class Planning extends Model
 
     protected $guarded = [];
 
-    public function recipe(): BelongsTo
+    public function recipes(): BelongsToMany
     {
-        return $this->BelongsTo(Recipe::class);
+        return $this->belongsToMany(Recipe::class, 'recipes_compose_plannings')->using(PlanningRecipe::class)->withPivot(['planned_for', 'moment_of_meal']);
     }
 }

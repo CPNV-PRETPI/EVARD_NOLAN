@@ -15,8 +15,9 @@ class Recipe extends Model
     {
         return $this->belongsToMany(Ingredient::class, 'ingredients_compose_recipes')->withPivot('quantity');
     }
-    public function plannings(): HasMany
+
+    public function plannings(): BelongsToMany
     {
-        return $this->HasMany(Planning::class);
+        return $this->belongsToMany(Planning::class, 'recipes_compose_plannings')->using(PlanningRecipe::class)->withPivot(['planned_for', 'moment_of_meal']);
     }
 }

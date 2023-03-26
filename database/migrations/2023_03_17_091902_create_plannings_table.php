@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('plannings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('recipe_id')->constrained();
-            $table->timestamp('planned_for');
-            $table->string('moment_of_meal');
+            $table->integer('weeknumber');
+            $table->integer('year');
             $table->timestamps();
-            $table->unique(['planned_for', 'moment_of_meal']);
+            $table->unique(['weeknumber', 'year']);
         });
     }
 

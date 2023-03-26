@@ -19,8 +19,8 @@ class PlanningFactory extends Factory
     public function definition(): array
     {
         return [
-            'planned_for' => Carbon::now()->addDays(rand(1,30)),
-            'moment_of_meal' => fake()->randomElement(['matin', 'midi', 'soir']),
+            'weeknumber' => Carbon::now()->addWeeks(fake()->unique()->numberBetween(0, 30))->weekOfYear,
+            'year' => Carbon::now()->year
         ];
     }
 }
