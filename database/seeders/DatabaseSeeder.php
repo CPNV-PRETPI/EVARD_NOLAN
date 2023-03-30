@@ -16,6 +16,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        /*Planning::factory(5)->create()->each(function ($planning){
+            Recipe::factory(5)->create()->each(function($recipe){
+
+            });
+        });*/
+
         $plannings = Planning::factory()->count(5)->create();
 
         foreach ($plannings as $planning)
@@ -35,7 +41,7 @@ class DatabaseSeeder extends Seeder
                     $recipe->id,
                     [
                         'planned_for' => Carbon::now()->setISODate($planning->year, $planning->weeknumber,$key+1),
-                        'moment_of_meal' => rand(1,3)
+                        'moment_of_meal' => fake()->randomElement(['Breakfast', 'Lunch', 'Diner'])
                     ]
                 );
             }

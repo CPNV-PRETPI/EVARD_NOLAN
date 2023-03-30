@@ -14,12 +14,10 @@ class PlanningRecipe extends Pivot
      */
     public $incrementing = true;
 
-    public $guarded = [];
-
     public const meals = [
-        1 => 'breakfast',
-        2=> 'lunch',
-        3=> 'diner'
+        1 => 'déjeuner',
+        2=> 'dîner',
+        3=> 'souper'
     ];
     protected function momentOfMeal() : Attribute
     {
