@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <hr class="h-0.5 bg-gray-200 border-0">
-                {{-- Meals section --}}
+                {{-- Planning section --}}
                 @if($planning)
                     <div class="grid grid-cols-1 lg:grid-cols-7 gap-4 m-2">
                         @foreach($period as $date)

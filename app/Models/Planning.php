@@ -10,6 +10,10 @@ class Planning extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are not mass assignable
+     * @var array
+     */
     protected $guarded = [];
 
     public function recipes(): BelongsToMany

@@ -9,6 +9,10 @@ use Illuminate\View\View;
 
 class PlanningController extends Controller
 {
+    /**
+     * Displays planning for curent week
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function index(){
         $now = Carbon::now();
         $firstDayOfWeek = Carbon::now()->setISODate($now->year, $now->weekOfYear);
@@ -22,6 +26,13 @@ class PlanningController extends Controller
             'period' => $period
         ]);
     }
+
+    /**
+     * Displays the planning for the given week
+     * @param string $year
+     * @param string $weeknumber
+     * @return View
+     */
     public function show(string $year, string $weeknumber):View
     {
         $firstDayOfWeek = Carbon::now()->setISODate($year, $weeknumber);
