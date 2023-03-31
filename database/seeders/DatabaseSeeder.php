@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Ingredient;
 use App\Models\Planning;
+use App\Models\PlanningRecipe;
 use App\Models\Recipe;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
@@ -41,7 +42,7 @@ class DatabaseSeeder extends Seeder
                     $recipe->id,
                     [
                         'planned_for' => Carbon::now()->setISODate($planning->year, $planning->weeknumber,$key+1),
-                        'moment_of_meal' => fake()->randomElement(['Breakfast', 'Lunch', 'Diner'])
+                        'moment_of_meal' => PlanningRecipe::meals[rand(1,3)]
                     ]
                 );
             }
